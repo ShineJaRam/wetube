@@ -10,4 +10,16 @@ const remove = (req, res) => {
   return res.send("Remove User");
 };
 
-export { join, edit, remove };
+const login = (req, res) => {
+  return res.send("Login");
+}
+
+const logout = (req, res) => {
+  return res.send("Log Out")
+}
+
+const see = (req, res) => {
+  return res.send("See")
+}
+
+export { join, edit, remove, login, logout, see };

@@ -1,5 +1,5 @@
 const trending = (req, res) => {
-  return res.render("home");
+  return res.render("home", {pageTitle: 'Home'});
 };
 
 const see = (req, res) =>  res.render('watch');

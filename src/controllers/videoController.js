@@ -1,35 +1,40 @@
-const trending = (req, res) => {
-  const videos = [
-    {
-      title: 'first Video',
-      rating: 5,
-      comments: 2,
-      createdAt: '2 Minutes ago',
-      views: 59,
-      id: 1,
-    },
-    {
-      title: 'first Video',
-      rating: 5,
-      comments: 2,
-      createdAt: '2 Minutes ago',
-      views: 59,
-      id: 1,
-    },
-    {
-      title: 'first Video',
-      rating: 5,
-      comments: 2,
-      createdAt: '2 Minutes ago',
-      views: 59,
-      id: 1,
-    },
-  ];
+const videos = [
+  {
+    title: 'first Video',
+    rating: 5,
+    comments: 2,
+    createdAt: '2 Minutes ago',
+    views: 1,
+    id: 1,
+  },
+  {
+    title: '2 Video',
+    rating: 5,
+    comments: 2,
+    createdAt: '2 Minutes ago',
+    views: 59,
+    id: 2,
+  },
+  {
+    title: '3 Video',
+    rating: 5,
+    comments: 2,
+    createdAt: '2 Minutes ago',
+    views: 59,
+    id: 3,
+  },
+];
 
+const trending = (req, res) => {
   return res.render('home', { pageTitle: 'Home', videos });
 };
 
-const see = (req, res) => res.render('watch');
+const watch = (req, res) => {
+  const { id } = req.params;
+  const video = videos[id - 1];
+
+  return res.render('watch', { pageTitle: `Watching ${video.title}`, video });
+};
 
 const edit = (req, res) => {
   console.log(req.params);
@@ -49,4 +54,4 @@ const deleteVideo = (req, res) => {
   return res.send('Delete');
 };
 
-export { trending, see, edit, search, upload, deleteVideo };
+export { trending, watch, edit, search, upload, deleteVideo };
